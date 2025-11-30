@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>KIMHUBFX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="left">
+      <button class="icon-btn" id="menuBtn">☰</button>
+      <span class="logo">KIMHUBFX</span>
+    </div>
+    <div class="right">
+      <button class="auth-btn" id="loginBtn">Login</button>
+      <button class="auth-btn" id="createBtn">Create Account</button>
+    </div>
+  </header>
+
+  <!-- horizontal menu -->
+  <nav class="horizontal-menu">
+    <div class="menu-item" data-target="dashboard.html">Dashboard</div>
+    <div class="menu-item" data-target="bot-builder.html">Bot Builder</div>
+    <div class="menu-item" data-target="freebots.html">FreeBots</div>
+    <div class="menu-item" data-target="analysis-tool.html">Analysis Tool</div>
+    <div class="menu-item" data-target="analysis.html">Analysis</div>
+    <div class="menu-item" data-target="dp-tool.html">DP Tool</div>
+    <div class="menu-item" data-target="dtrader.html">DTrader</div>
+    <div class="menu-item" data-target="wallet.html">Wallet</div>
+  </nav>
+
+  <!-- Sidebar (channels) -->
+  <aside id="sidebar" class="sidebar">
+    <div class="side-inner">
+      <span class="close" id="closeSidebar">×</span>
+      <h2>KIMHUBFX</h2>
+      <div class="section-title">Account</div>
+      <a href="#">Account Settings</a>
+      <a href="#">Cashier</a>
+      <a href="#" onclick="appUI.toggleTheme()">Dark Theme</a>
+
+      <div class="section-title">Channels</div>
+      <a href="https://wa.me/254724753475" target="_blank">WhatsApp</a>
+      <a href="https://whatsapp.com/channel/0029Vb77BD8B4hdNphlldH3g" target="_blank">WhatsApp Channel</a>
+      <a href="https://www.youtube.com/@kimhtai" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@kimh.tai" target="_blank">TikTok</a>
+      <a href="https://t.me/kimhubfx" target="_blank">Telegram</a>
+      <a href="https://www.instagram.com/kimh.tai" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61582999149557" target="_blank">Facebook</a>
+      <a href="https://wa.me/message/ZPIOXNGV3YSEM1" target="_blank">WhatsApp DM</a>
+    </div>
+  </aside>
+
+  <!-- main content area -->
+  <main id="pageContent" class="container">
+    <div class="center-box">
+      <h2>Welcome to KIMHUBFX</h2>
+      <p>Select an option above to start.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div>© KIMHUBFX 2025 — <a href="https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142" target="_blank">Join Deriv (ref)</a></div>
+  </footer>
+
+  <script src="menu.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // referral used for create account
+    document.getElementById('createBtn').onclick = ()=> {
+      window.location.href = "https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142";
+    };
+
+    // login: go to Deriv OAuth (force login)
+    document.getElementById('loginBtn').onclick = ()=> {
+      const redirect = encodeURIComponent(location.origin + '/redirect.html');
+      window.location.href = "https://oauth.deriv.com/oauth2/authorize?app_id=112604&force_login=1&redirect_uri=" + redirect;
+    };
+  </script>
+</body>
+</html>
