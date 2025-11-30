@@ -1,0 +1,25 @@
+:root{
+  --brand:#ff4d4d;
+  --bg:#f5f5f7;
+  --muted:#6b7280;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:#111}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--brand);color:#fff;font-weight:800}
+.topbar .left{display:flex;align-items:center;gap:12px}
+.icon-btn{background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer}
+.logo{font-weight:900}
+.auth-btn{background:#fff;color:var(--brand);border-radius:8px;padding:8px 12px;border:0;font-weight:800;cursor:pointer}
+.horizontal-menu{display:flex;gap:16px;padding:12px;background:#fff;border-bottom:1px solid #eee;overflow:auto}
+.menu-item{padding:8px 12px;cursor:pointer;color:var(--brand);font-weight:800}
+.container{max-width:1100px;margin:20px auto;padding:0 12px}
+.center-box{background:#fff;padding:28px;border-radius:10px;text-align:center}
+.sidebar{position:fixed;left:-280px;top:0;height:100%;width:280px;background:#fff;box-shadow:2px 0 12px rgba(0,0,0,0.06);transition:left .25s;padding:18px;z-index:999}
+.sidebar.open{left:0}
+.side-inner h2{color:var(--brand);margin:0 0 12px 0}
+.side-inner a{display:block;padding:10px 6px;color:#111;text-decoration:none;border-radius:6px}
+.side-inner a:hover{background:#f8f8f8}
+.close{float:right;font-size:22px;cursor:pointer}
+.site-footer{text-align:center;padding:16px;color:var(--muted);font-size:14px}
+.card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 6px 18px rgba(0,0,0,0.04);margin-bottom:12px}
+@media(max-width:700px){.horizontal-menu{font-size:14px}}
