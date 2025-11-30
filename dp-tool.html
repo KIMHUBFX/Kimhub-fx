@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DP Tool • KIMHUBFX</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="topbar"><div class="left"><button class="icon-btn" onclick="appUI.openMenu()">☰</button><span class="logo">KIMHUBFX</span></div></header>
+<nav class="horizontal-menu"><div class="menu-item" onclick="location.href='dashboard.html'">Dashboard</div><div class="menu-item" onclick="location.href='analysis-tool.html'">Analysis Tool</div><div class="menu-item active">DP Tool</div></nav>
+
+<main class="container">
+  <div class="card">
+    <h2>DP Tool</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <label>Market <select id="dpMarket">
+        <option value="R_100">R_100</option>
+        <option value="R_50">R_50</option>
+        <option value="R_25">R_25</option>
+        <option value="R_10">R_10</option>
+      </select></label>
+      <button id="dpConnect">Connect</button>
+      <button id="dpDemo">Demo</button>
+    </div>
+
+    <div style="margin-top:12px">
+      <div>Latest Price: <span id="dpPrice">—</span></div>
+      <div>Last Digit: <span id="dpDigit">—</span></div>
+      <div>Digits: <div id="dpDigits" style="margin-top:8px"></div></div>
+    </div>
+  </div>
+</main>
+
+<script src="menu.js"></script>
+<script src="dp-tool.js"></script>
+</body></html>
