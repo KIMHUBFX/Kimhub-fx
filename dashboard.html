@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard • KIMHUBFX</title><link rel="stylesheet" href="style.css"></head><body>
+  <header class="topbar"><div class="left"><button class="icon-btn" onclick="appUI.openMenu()">☰</button><span class="logo">KIMHUBFX</span></div><div id="authContainer" class="right"></div></header>
+  <nav class="horizontal-menu"><div class="menu-item" onclick="location.href='dashboard.html'">Dashboard</div><div class="menu-item" onclick="location.href='bot-builder.html'">Bot Builder</div><div class="menu-item" onclick="location.href='freebots.html'">FreeBots</div><div class="menu-item" onclick="location.href='analysis-tool.html'">Analysis Tool</div><div class="menu-item" onclick="location.href='dp-tool.html'">DP Tool</div></nav>
+
+  <main class="container">
+    <div class="card center-box">
+      <h2>Account Balance</h2>
+      <div id="balanceBox" style="font-weight:900;font-size:20px">—</div>
+      <div style="margin-top:8px" id="accountBox">—</div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>R_100 Live Price</h3>
+      <div id="tickBox" class="muted">—</div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>Event History</h3>
+      <div id="history" class="muted">No events yet</div>
+    </div>
+  </main>
+
+<script src="menu.js"></script>
+<script src="app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  appUI.renderAuthButtons('authContainer');
+  const token = localStorage.getItem('auth_token');
+  if(!token){ document.getElementById('balanceBox').innerText = '—'; document.getElementById('accountBox').innerHTML = '<a href="index.html">Login</a>'; return; }
+  document.getElementById('balanceBox').innerText = 'USD 0.00';
+  document.getElementById('accountBox').innerText = 'Demo Account';
+});
+</script>
+</body></html>
