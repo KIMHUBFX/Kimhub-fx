@@ -1,0 +1,123 @@
+/* ============ GENERAL ============ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* ============ TOP BAR ============ */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 12px 15px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ============ DASHBOARD BAR ============ */
+.dashboard-bar {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-bar a {
+    display: inline-block;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.dashboard-bar a.active {
+    text-decoration: underline;
+}
+
+/* ============ MAIN TOOLS CONTENT ============ */
+.tools-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.tool-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1 1 300px; /* responsive width */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.tool-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.tool-card p {
+    margin-bottom: 15px;
+}
+
+/* ============ BUTTONS ============ */
+.tool-card .btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.tool-card .btn-primary {
+    background: black;
+    color: white;
+}
+
+.tool-card .btn-outline {
+    background: white;
+    border: 1px solid black;
+    color: black;
+}
+
+/* ============ TABLES / DATA DISPLAY ============ */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-wrapper th {
+    background: #f2f2f2;
+    font-weight: bold;
+}
+
+/* ============ MOBILE RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .tools-container {
+        flex-direction: column;
+    }
+
+    .dashboard-bar {
+        overflow-x: scroll;
+    }
+}
