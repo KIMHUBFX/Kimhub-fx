@@ -1,83 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>KIMHUBFX</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KIMHUBFX</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== Global ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+/* ===== Top Bar ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 12px 15px;
+}
+.topbar .left {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 8px;
+}
+.icon-btn {
+  font-size: 22px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+.topbar .right button {
+  background: white;
+  color: black;
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* ===== Horizontal Menu ===== */
+.horizontal-menu {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.menu-item {
+  flex: 0 0 auto;
+  padding: 12px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.menu-item:hover {
+  background: #f0f0f0;
+}
+.menu-item.active {
+  text-decoration: underline;
+}
+
+/* ===== Sidebar / Channels ===== */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #ccc;
+  padding: 16px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+.sidebar.open { left: 0; }
+.sidebar .close {
+  cursor: pointer;
+  font-size: 22px;
+  float: right;
+}
+.sidebar a { display: block; margin: 6px 0; text-decoration: none; color: black; }
+
+/* ===== Main Content ===== */
+.container {
+  padding: 20px;
+}
+.center-box { text-align: center; }
+.card {
+  background: #fff;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.muted { color: #666; }
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 12px 0;
+  background: #222;
+  color: white;
+  margin-top: 20px;
+}
+.site-footer a { color: #f4f4f4; text-decoration: underline; }
+</style>
 </head>
 <body>
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="left">
-      <button class="icon-btn" id="menuBtn">☰</button>
-      <span class="logo">KIMHUBFX</span>
-    </div>
-    <div class="right">
-      <button class="auth-btn" id="loginBtn">Login</button>
-      <button class="auth-btn" id="createBtn">Create Account</button>
-    </div>
-  </header>
 
-  <!-- horizontal menu -->
-  <nav class="horizontal-menu">
-    <div class="menu-item" data-target="dashboard.html">Dashboard</div>
-    <div class="menu-item" data-target="bot-builder.html">Bot Builder</div>
-    <div class="menu-item" data-target="freebots.html">FreeBots</div>
-    <div class="menu-item" data-target="analysis-tool.html">Analysis Tool</div>
-    <div class="menu-item" data-target="analysis.html">Analysis</div>
-    <div class="menu-item" data-target="dp-tool.html">DP Tool</div>
-    <div class="menu-item" data-target="dtrader.html">DTrader</div>
-    <div class="menu-item" data-target="wallet.html">Wallet</div>
-  </nav>
+<!-- Top Bar -->
+<header class="topbar">
+  <div class="left">
+    <button class="icon-btn" id="menuBtn">☰</button>
+    <span class="logo">KIMHUBFX</span>
+  </div>
+  <div class="right">
+    <button class="auth-btn" id="loginBtn">Login</button>
+    <button class="auth-btn" id="signupBtn">Sign Up</button>
+  </div>
+</header>
 
-  <!-- Sidebar (channels) -->
-  <aside id="sidebar" class="sidebar">
-    <div class="side-inner">
-      <span class="close" id="closeSidebar">×</span>
-      <h2>KIMHUBFX</h2>
-      <div class="section-title">Account</div>
-      <a href="#">Account Settings</a>
-      <a href="#">Cashier</a>
-      <a href="#" onclick="appUI.toggleTheme()">Dark Theme</a>
+<!-- Horizontal Menu -->
+<nav class="horizontal-menu">
+  <div class="menu-item" onclick="location.href='dashboard.html'">Dashboard</div>
+  <div class="menu-item" onclick="location.href='dashboard.html?tool=botbuilder&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">Bot Builder</div>
+  <div class="menu-item" onclick="location.href='dashboard.html?tool=freebots&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">FreeBots</div>
+  <div class="menu-item" onclick="location.href='dashboard.html?tool=analysis&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">Analysis Tool</div>
+  <div class="menu-item" onclick="location.href='dashboard.html?tool=dptool&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">DP Tool</div>
+  <div class="menu-item" onclick="location.href='dashboard.html?tool=dtrader&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">DTrader</div>
+</nav>
 
-      <div class="section-title">Channels</div>
-      <a href="https://wa.me/254724753475" target="_blank">WhatsApp</a>
-      <a href="https://whatsapp.com/channel/0029Vb77BD8B4hdNphlldH3g" target="_blank">WhatsApp Channel</a>
-      <a href="https://www.youtube.com/@kimhtai" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@kimh.tai" target="_blank">TikTok</a>
-      <a href="https://t.me/kimhubfx" target="_blank">Telegram</a>
-      <a href="https://www.instagram.com/kimh.tai" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=61582999149557" target="_blank">Facebook</a>
-      <a href="https://wa.me/message/ZPIOXNGV3YSEM1" target="_blank">WhatsApp DM</a>
-    </div>
-  </aside>
+<!-- Sidebar Channels -->
+<aside id="sidebar" class="sidebar">
+  <span class="close" id="closeSidebar">×</span>
+  <h2>Channels</h2>
+  <a href="https://wa.me/254724753475?text=Referral:%20https://deriv.partners/rx?ca=kimhuhfx.com" target="_blank">WhatsApp</a>
+  <a href="https://chat.whatsapp.com/0029Vb77BD8B4hdNphlldH3g" target="_blank">WhatsApp Channel</a>
+  <a href="https://www.youtube.com/@kimhtai" target="_blank">YouTube</a>
+  <a href="https://www.tiktok.com/@kimh.tai" target="_blank">TikTok</a>
+  <a href="https://t.me/kimhubfx" target="_blank">Telegram</a>
+  <a href="https://www.instagram.com/kimh.tai" target="_blank">Instagram</a>
+  <a href="https://www.facebook.com/profile.php?id=61582999149557" target="_blank">Facebook</a>
+  <a href="https://wa.me/message/ZPIOXNGV3YSEM1" target="_blank">WhatsApp DM</a>
+</aside>
 
-  <!-- main content area -->
-  <main id="pageContent" class="container">
-    <div class="center-box">
-      <h2>Welcome to KIMHUBFX</h2>
-      <p>Select an option above to start.</p>
-    </div>
-  </main>
+<!-- Main Content -->
+<main class="container">
+  <div class="center-box">
+    <h2>Welcome to KIMHUBFX</h2>
+    <p>Select an option above to start.</p>
+  </div>
 
-  <footer class="site-footer">
-    <div>© KIMHUBFX 2025 — <a href="https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142" target="_blank">Join Deriv (ref)</a></div>
-  </footer>
+  <div class="card center-box">
+    <h2>Account Balance</h2>
+    <div id="balanceBox" style="font-weight:900;font-size:20px">—</div>
+    <div id="accountBox">—</div>
+  </div>
 
-  <script src="menu.js"></script>
-  <script src="app.js"></script>
-  <script>
-    // referral used for create account
-    document.getElementById('createBtn').onclick = ()=> {
-      window.location.href = "https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142";
-    };
+  <div class="card">
+    <h3>R_100 Live Price</h3>
+    <div id="tickBox" class="muted">—</div>
+  </div>
 
-    // login: go to Deriv OAuth (force login)
-    document.getElementById('loginBtn').onclick = ()=> {
-      const redirect = encodeURIComponent(location.origin + '/redirect.html');
-      window.location.href = "https://oauth.deriv.com/oauth2/authorize?app_id=112604&force_login=1&redirect_uri=" + redirect;
-    };
-  </script>
+  <div class="card">
+    <h3>Event History</h3>
+    <div id="history" class="muted">No events yet</div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  © KIMHUBFX 2025 — <a href="https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142" target="_blank">Join Deriv (ref)</a>
+</footer>
+
+<script>
+// ===== Sidebar toggle =====
+const sidebar = document.getElementById('sidebar');
+document.getElementById('menuBtn').onclick = ()=> sidebar.classList.add('open');
+document.getElementById('closeSidebar').onclick = ()=> sidebar.classList.remove('open');
+
+// ===== Login / Signup Buttons =====
+document.getElementById('signupBtn').onclick = ()=> {
+  window.location.href = "https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142";
+};
+document.getElementById('loginBtn').onclick = ()=> {
+  const redirect = encodeURIComponent(location.origin + '/dashboard.html');
+  window.location.href = `https://oauth.deriv.com/oauth2/authorize?app_id=112604&force_login=1&redirect_uri=${redirect}`;
+};
+
+// ===== Auto-display logged-in user =====
+document.addEventListener('DOMContentLoaded', ()=>{
+  const username = localStorage.getItem('username');
+  const balanceBox = document.getElementById('balanceBox');
+  const accountBox = document.getElementById('accountBox');
+  const loginBtn = document.getElementById('loginBtn');
+  const signupBtn = document.getElementById('signupBtn');
+
+  if(username){
+    if(loginBtn) loginBtn.style.display='none';
+    if(signupBtn) signupBtn.style.display='none';
+    accountBox.innerHTML = `<strong>Hi, ${username}</strong>`;
+    balanceBox.innerText = localStorage.getItem('balance') || 'USD 0.00';
+  }
+});
+</script>
 </body>
 </html>
