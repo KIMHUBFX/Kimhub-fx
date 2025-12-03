@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sign Up - KIMHUBFX</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<!-- ============= TOP BAR ============= -->
+<header class="topbar">
+    <div class="left">
+        <span class="menu-icon" id="menuBtn">☰</span>
+        <span class="logo">KIMHUBFX</span>
+    </div>
+
+    <div class="right">
+        <button class="auth-btn" onclick="window.location.href='login.html'">Login</button>
+    </div>
+</header>
+
+<!-- ============= CHANNELS DROPDOWN ============= -->
+<div id="channelMenu" class="hidden">
+    <h3>Channels</h3>
+    <a href="https://wa.me/254724753475" target="_blank">WhatsApp</a>
+    <a href="https://whatsapp.com/channel/0029Vb77BD8B4hdNphlldH3g" target="_blank">WhatsApp Channel</a>
+    <a href="https://www.youtube.com/@kimhtai" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/@kimh.tai" target="_blank">TikTok</a>
+    <a href="https://t.me/kimhubfx" target="_blank">Telegram</a>
+    <a href="https://www.instagram.com/kimh.tai" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61582999149557" target="_blank">Facebook</a>
+    <a href="https://wa.me/message/ZPIOXNGV3YSEM1" target="_blank">WhatsApp DM</a>
+</div>
+
+<!-- ============= DASHBOARD BAR ============= -->
+<nav class="dashboard">
+    <a href="index.html">Dashboard</a>
+    <a href="#">Bot Builder</a>
+    <a href="#">FreeBots</a>
+    <a href="#">Analysis Tool</a>
+    <a href="#">Analysis</a>
+    <a href="#">DP Tool</a>
+    <a href="#">DTrader</a>
+</nav>
+
+<!-- ============= MAIN CONTENT ============= -->
+<main class="content">
+    <div class="box">
+        <h2>Create Your Deriv Account</h2>
+
+        <p style="text-align:center;">You will be redirected to Deriv’s official signup page.</p>
+
+        <!-- SIGNUP BUTTON -->
+        <button class="auth-btn deriv-login"
+            onclick="window.location.href='https://deriv.com/signup/?referrer=kimhubfx&partner=CR154142&ref=https://deriv.partners/rx?ca=kimhuhfx.com&utm_campaign=dynamicworks&utm_medium=affiliate&utm_source=CU154142'">
+            Sign Up on Deriv
+        </button>
+
+        <p style="margin-top:20px; text-align:center;">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+    </div>
+</main>
+
+<script>
+document.getElementById("menuBtn").onclick = () => {
+    const menu = document.getElementById("channelMenu");
+    menu.classList.toggle("hidden");
+};
+</script>
+
+</body>
+</html>
