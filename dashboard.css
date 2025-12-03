@@ -1,0 +1,98 @@
+/* ============ GENERAL ============ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* ============ TOP BAR ============ */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 12px 15px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ============ DASHBOARD SCROLL BAR ============ */
+.dashboard-bar {
+    display: flex;
+    overflow-x: auto;         /* enables horizontal scrolling */
+    white-space: nowrap;      /* prevents breaking into new lines */
+    background: white;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-bar::-webkit-scrollbar {
+    height: 6px;
+}
+
+.dashboard-bar::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.dashboard-bar a {
+    display: inline-block;
+    padding: 12px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.dashboard-bar a.active {
+    text-decoration: underline;
+}
+
+/* ============ MAIN CONTENT ============ */
+.content {
+    padding: 20px;
+}
+
+.widget {
+    background: white;
+    padding: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.widget h3 {
+    margin-top: 0;
+}
+
+.center-box {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ccc;
+    width: 80%;
+    margin: 40px auto;
+    border-radius: 5px;
+}
+
+/* ============ BUTTONS ============ */
+.btn {
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: black;
+    color: white;
+}
+
+.btn-outline {
+    background: white;
+    border: 1px solid black;
+    color: black;
+}
