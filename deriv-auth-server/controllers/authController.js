@@ -4,20 +4,26 @@ import User from '../models/user.js';
 import { generateToken } from '../utils/jwt.js';
 dotenv.config();
 
-export const derivCallback = async (req, res) => {
-  const { code } = req.body;
+const fetchDerivUser = async () => {
+  const response = await axios.get('https://api.deriv.com/api/v1/account', {
+    headers: { 'Authorization': `Bearer ${process.env.DERIV_API_TOKEN}` }
+  });
+  return response.data;
+};
 
-  if (!code) return res.status(400).json({ message: 'Missing OAuth code' });
+const fetchDerivTrades = async (derivId) => {
+  const response = await axios.get(`https://api.deriv.com/api/v1/trades?client_id=${derivId}&limit=50`, {
+    headers: { 'Authorization': `Bearer ${process.env.DERIV_API_TOKEN}` }
+  });
+  return response.data.trades || [];
+};
+
+export const derivCallback = async (req, res) => {
+  const { code, referralCode } = req.body;
 
   try {
-    // Fetch Deriv account info using API token
-    const response = await axios.get('https://api.deriv.com/api/v1/account', {
-      headers: { 'Authorization': `Bearer ${process.env.DERIV_API_TOKEN}` }
-    });
+    const data = await fetchDerivUser();
 
-    const data = response.data;
-
-    // Check if user exists, else create
     let user = await User.findOne({ derivId: data.client_id });
 
     if (!user) {
@@ -26,17 +32,32 @@ export const derivCallback = async (req, res) => {
         name: data.name || 'John Doe',
         email: data.email || 'john@example.com',
         balance: data.balance || 0,
-        referral: process.env.DERIV_REFERRAL_LINK
+        referral: process.env.DERIV_REFERRAL_LINK,
+        referralCount: 0
       });
+
+      if (referralCode) {
+        const referrer = await User.findOne({ derivId: referralCode });
+        if (referrer) {
+          referrer.referralCount += 1;
+          referrer.referredUsers.push(user._id);
+          await referrer.save();
+        }
+      }
+
       await user.save();
+    } else {
+      user.balance = data.balance || user.balance;
     }
 
-    // Generate JWT
+    user.trades = await fetchDerivTrades(user.derivId);
+    await user.save();
+
     const token = generateToken(user);
 
     res.json({ token, user });
   } catch (error) {
     console.error('Deriv API error:', error.message);
-    res.status(500).json({ message: 'Failed to fetch user from Deriv', error: error.message });
+    res.status(500).json({ message: 'Failed to fetch user or trades', error: error.message });
   }
 };
