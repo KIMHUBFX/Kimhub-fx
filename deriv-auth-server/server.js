@@ -4,26 +4,27 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 import authMiddleware from './middleware/authMiddleware.js';
+import { startCronJob } from './utils/cron.js';
 
 dotenv.config();
-
 const app = express();
 app.use(bodyParser.json());
 
-// Connect to MongoDB
+// MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Auth routes
+// Routes
 app.use('/api/auth', authRoutes);
-
-// Example protected route
 app.get('/api/protected', authMiddleware, (req, res) => {
   res.json({ message: 'Protected content', user: req.user });
 });
+
+// Start cron job
+startCronJob();
 
 // Start server
 const PORT = process.env.PORT || 3000;
